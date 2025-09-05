@@ -1,0 +1,49 @@
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  transition: filter 0.8s ease-in-out;
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  filter: brightness(0.5) contrast(1.2); /* Adjust brightness and contrast */
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color : #800080; /* Change arrow color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+  padding: 0;
+  padding: 35px;
+  border-radius: 50px;
+  opacity: 90%;
+  font-weight: bolder;
+}
+
+.swiper-button-prev {
+  left: -4%; 
+  transform: translateY(-20%);
+}
+
+.swiper-button-next {
+  right: -4%;
+  transform: translateY(-20%);
+}
+
+@media(min-width:640px) {
+  .swiper-button-prev {
+    left: 18%; 
+    transform: translateY(-10%);
+  }
+  .swiper-button-next {
+    right: 18%;
+    transform: translateY(-10%);
+  }
+  
+}

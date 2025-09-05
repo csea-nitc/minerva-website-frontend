@@ -1,0 +1,15 @@
+{
+  "news": [
+    { "title": "Breaking News 1", "href": "/news/1" },
+    { "title": "Breaking News 2", "href": "/news/2" },
+    { "title": "Breaking News 3", "href": "/news/3" }
+  ],
+  "updates": [
+    { "title": "System Update 1", "href": "/updates/1" },
+    { "title": "System Update 2", "href": "/updates/2" }
+  ],
+  "events": [
+    { "title": "Tech Event 2024", "href": "/events/tech-2024" },
+    { "title": "Cultural Fest", "href": "/events/culture" }
+  ]
+}
