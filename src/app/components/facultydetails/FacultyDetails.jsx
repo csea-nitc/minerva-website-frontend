@@ -102,7 +102,7 @@ export default function FacultyDetails({
                         faculty.photograph ? (`${backend_url}${faculty?.photograph?.url}`) : "./pfp.jpg"}
                       // src={faculty.image}
                       alt=""
-                      className="lg:w-[300px] lg:h-[360px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
+                      className="lg:w-[250px] lg:h-[300 px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
                     />
                   </div>
                   <div className="absolute bottom-0 w-full">
@@ -237,21 +237,41 @@ export default function FacultyDetails({
                               </ul>
                             )}
 
-                            {filteredFacultyData[activeIndex]
-                              .additional_info && (
-                                <ul>
-                                  Additional Info:{" "}
-                                {
-                                filteredFacultyData[activeIndex]
-                                .additional_info.split( "~" ).map( ( item , index ) => ( 
-                                  <li className="m-4" key = {index}>
-                                  {
-                                    item
-                                  }
-                                  </li>
-                                ))
-                                }
-                              </ul> 
+                            {filteredFacultyData[activeIndex].additional_info && (
+                              <ul className="m-4">
+                                <span className="font-semibold">Additional Info:</span>
+                                {filteredFacultyData[activeIndex].additional_info.split("~").map((item, index) => {
+
+                                  // A regular expression to find URLs (http, https)
+                                  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+                                  // Split the item string into an array of text and links
+                                  const parts = item.split(urlRegex);
+                                  
+                                  return (
+                                    <li className="px-8 mb-3" key={index}>
+                                      {parts.map((part, i) =>
+                                        // Check if the current part is a URL
+                                        part.match(urlRegex) ? (
+                                          // If it's a URL, render a clickable link
+                                          <a
+                                            href={part}
+                                            key={i}
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="text-purple-600 underline hover:text-purple-800"
+                                          >
+                                            {part}
+                                          </a>
+                                        ) : (
+                                          // Otherwise, just render it as plain text
+                                          <span key={i}>{part}</span>
+                                        )
+                                      )}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
                             )}
 
                             {filteredFacultyData[activeIndex]
