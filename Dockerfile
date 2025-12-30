@@ -33,10 +33,9 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Set up the public folder and .next folder with correct permissions
-# Note: We copy 'public' separately if it exists (it's ignored in your .dockerignore)
-# If you mount 'public' as a volume, you don't need to COPY it here.
 COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/package.json ./
+COPY --from=builder /app/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
