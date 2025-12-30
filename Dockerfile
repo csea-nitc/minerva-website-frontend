@@ -21,8 +21,6 @@ RUN --mount=type=secret,id=next_env,target=.env npm run build
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN npm run build
-
 # --- Stage 3: Runner ---
 FROM node:20-alpine AS runner
 WORKDIR /app
