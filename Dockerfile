@@ -13,6 +13,8 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Be sure to provide the secret in docker-compose.yml
+RUN --mount=type=secret,id=next_env,target=.env npm run build
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
