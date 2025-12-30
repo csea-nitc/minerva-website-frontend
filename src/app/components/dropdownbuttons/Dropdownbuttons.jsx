@@ -118,7 +118,7 @@ function DropdownButtons({ data }) {
               })
               .map((item) => (
                 <li key={`${item.pdf.documentId}-${index}`} className="px-4 py-2 text-white text-[1.2em]">
-                  <a href={`${backend_url}${item.pdf.url}`} target="_blank" rel="noopener noreferrer">
+                  <a href={`${item.pdf.url[0] == '/' ? `${backend_url}${item.pdf.url}` : `${backend_url}\${item}`} ${backend_url}${item.pdf.url}`} target="_blank" rel="noopener noreferrer">
                     {item.Name}
                   </a>
                 </li>

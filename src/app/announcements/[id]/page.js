@@ -19,7 +19,7 @@ export default function post({ params: promiseParams }) {
     const fetchData = async () => {
       try {
         const data = await fetch(
-          `${backend_url}api/announcements/${id}?populate[pdf][populate]=*&populate=image`,
+          `${backend_url}/api/announcements/${id}?populate[pdf][populate]=*&populate=image`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
