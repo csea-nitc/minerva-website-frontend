@@ -13,7 +13,7 @@ export default function links() {
     useEffect(() => {
         const fetchDataAndRedirect = async () => {
             try {
-                const response = await fetch(`${backend_url}api/links`, {
+                const response = await fetch(`${backend_url}/api/links`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
