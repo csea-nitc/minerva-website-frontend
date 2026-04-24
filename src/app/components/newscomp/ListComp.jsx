@@ -86,6 +86,7 @@ const ListComp = ({ item, flag = 0 }) => {
           </div>
         )
       ) : (
+        item.pdf && item.pdf.length > 0 && (
         <div className="grid gap-5 mt-4">
           {item.pdf.map((pdf) => (
             <PDF
@@ -95,7 +96,7 @@ const ListComp = ({ item, flag = 0 }) => {
             />
           ))}
         </div>
-      )}
+      ))}
     </div>
   );
 };

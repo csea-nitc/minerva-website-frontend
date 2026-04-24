@@ -30,6 +30,7 @@ export default function Home( { params : promiseParams } ) {
                 );
 
                 const Data = await data.json();
+                console.log( Data);
                 setData( Data.data ? Data.data : [] );
             } catch (err) {
                 console.error("Fetch error:", err);
@@ -50,7 +51,7 @@ export default function Home( { params : promiseParams } ) {
             <div className="py-10 w-[100vw] mt-[40vh] sm:mt-[50vh] md:mt-[60vh] lg:mt-[70vh] relative z-10 bg-white">
                 <div className="sm:w-[65%] w-[85%] mx-auto">
                     {data ? (
-                        <ListComp item={data} />
+                        <ListComp item={data} flag={1}/>
                     ) : (
                         <Loading />
                     )}
