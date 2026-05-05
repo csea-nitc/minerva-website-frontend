@@ -26,7 +26,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         const linksD = await fetch(
-          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate=image`,
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate[image][populate]=*`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -44,10 +44,10 @@ const Sidebar = () => {
     const fetchBrochures = async () => {
       try {
         const [deptBrochureRes, phdBrochureRes] = await Promise.all([
-          fetch(`${backend_url}/api/deparment-brochure?populate=pdf`, {
+          fetch(`${backend_url}/api/deparment-brochure?populate[pdf][populate]=*`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          fetch(`${backend_url}/api/ph-d-brochure?populate=pdf`, {
+          fetch(`${backend_url}/api/ph-d-brochure?populate[pdf][populate]=*`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -59,6 +59,8 @@ const Sidebar = () => {
 
         Setdept(deptBrochureData.data || []);
         Setphd(phdBrochureData.data || []);
+        // console.log("Department Brochure:", deptBrochureData);
+        // console.log("PhD Brochure:", phdBrochureData);
       } catch (err) {
         console.error("Fetch error:", err);
       }

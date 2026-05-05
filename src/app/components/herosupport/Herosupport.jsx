@@ -37,7 +37,7 @@ const Herosupport = ({ props }) => {
     const fetchData = async () => {
       try {
         const linksD = await fetch(
-          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate=image`,
+          `${backend_url}/api/quick-links?sort[0]=createdAt:desc&populate[pdf][populate]=*&populate[image][populate]=*`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
