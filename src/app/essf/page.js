@@ -9,6 +9,8 @@ import Loading from "../components/loading/loading";
 export default function ESSFPage() {
     const [rep_4th, SetRep_4th] = useState([]);
     const [rep_3rd, SetRep_3rd] = useState([]);
+    const [doc, SetDoc] = useState([]);
+    const [docUrl, SetDocUrl] = useState("");
     const [isLoading, setIsLoading] = useState(true); // Track loading status
 
     const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -17,19 +19,24 @@ export default function ESSFPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [res1, res2] = await Promise.all([
+                const [res1, res2, res3] = await Promise.all([
                     fetch(`${backend_url}/api/essf-4th-year`, {
                         headers: { Authorization: `Bearer ${token}` },
                     }),
                     fetch(`${backend_url}/api/essf-3rd-year`, {
                         headers: { Authorization: `Bearer ${token}` },
                     }),
+                    fetch(`${backend_url}/api/essf-doc?populate=*`, {
+                        headers: { Authorization: `Bearer ${token}` },
+                    }),
                 ]);
 
-                const [data1, data2] = await Promise.all([res1.json(), res2.json()]);
+                const [data1, data2, data3] = await Promise.all([res1.json(), res2.json(), res3.json()]);
 
                 SetRep_4th(data1?.data || []);
                 SetRep_3rd(data2?.data || []);
+                SetDoc(data3?.data || []);
+                SetDocUrl(backend_url + (data3?.data?.pdf?.url || ""));
             } catch (err) {
                 console.error("Error fetching data:", err);
             } finally {
@@ -103,6 +110,11 @@ export default function ESSFPage() {
                                     </div>
                                 ))}
                             </div>
+                            <p className="md:text-lg">
+                                <a href={docUrl} target="_blank" rel="noopener noreferrer" className="text-[#800080] underline">
+                                    Click here to know more about ESSF
+                                </a>
+                            </p>
                         </div>
                     )}
                 </div>
