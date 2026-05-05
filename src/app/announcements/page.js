@@ -20,7 +20,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${backend_url}/api/announcements?populate[pdf][populate]=*&populate=image&sort[0]=createdAt:desc`,
+          `${backend_url}/api/announcements?populate[pdf][populate]=*&populate[image][populate]=*&sort[0]=createdAt:desc`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
