@@ -38,7 +38,7 @@ export default function ESSFPage() {
                 SetDoc(data3?.data || []);
                 SetDocUrl(backend_url + (data3?.data?.pdf?.url || ""));
             } catch (err) {
-                console.error("Error fetching data:", err);
+                console.error("Error fetching data:", err);     
             } finally {
                 setIsLoading(false); // Set loading to false after data fetch
             }
@@ -112,7 +112,7 @@ export default function ESSFPage() {
                             </div>
                             <p className="md:text-lg">
                                 <a href={docUrl} target="_blank" rel="noopener noreferrer" className="text-[#800080] underline">
-                                    Click here to know more about ESSF
+                                    Click here to apply for ESSF and to know more
                                 </a>
                             </p>
                         </div>
