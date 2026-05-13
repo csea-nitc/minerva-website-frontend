@@ -21,7 +21,7 @@ export default function Home( { params : promiseParams } ) {
         const fetchData = async () => {
             try {
                 const data = await fetch(
-                    `${backend_url}/api/quick-links/${Slug}?populate[pdf][populate]=*&populate=image`,
+                    `${backend_url}/api/quick-links/${Slug}?populate=*`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
