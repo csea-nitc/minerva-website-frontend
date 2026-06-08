@@ -56,21 +56,14 @@ export default function ContactUsPage() {
                                 Office Working Hours:
                             </h2>
                             <p className="md:text-lg pt-2">
-                                9 AM to 5.50 PM, Mondays through Fridays
+                                9 AM to 5.30 PM, Mondays through Fridays
                             </p>
                             <h2 className="md:text-2xl pt-6 font-bold">
                                 Head of the Department:
                             </h2>
                             <p className="md:text-lg pt-2">
-                                <a
-                                    href="https://minerva.nitc.ac.in/faculty"
-                                    target="_blank"
-                                    className="text-purple-600 underline hover:text-purple-800"
-                                >
-                                    {data?.name}
-                                </a>
+                                <strong>{data?.name}</strong>
                                 <br />
-                                <strong>Email ID:</strong>{" "}
                                 <a
                                     href="mailto:hodcsed@nitc.ac.in"
                                     className="text-purple-600 underline hover:text-purple-800"
