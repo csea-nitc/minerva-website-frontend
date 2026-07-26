@@ -5,6 +5,11 @@ import remarkGfm from "remark-gfm";
 import PDF from "../pdf/PDF";
 
 const ListComp = ({ item, flag = 0 }) => {
+  // the flag is to conditionally render based on the collection type used in backend
+  // flag = 0 for dcc page, flag = 1 for quick-links page
+  // one uses pdf.pdf and the other uses pdf.url, so we need to handle both cases
+  // someone messed up strapi setup and fixing it is expensive, so we are handling it here in frontend for now
+
   const backend_url = process.env.NEXT_PUBLIC_API_URL;
 
   const swiperImages = item.image
