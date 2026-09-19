@@ -103,6 +103,7 @@ export default function FacultyDetails({
                       // src={faculty.image}
                       alt=""
                       className="lg:w-[250px] lg:h-[300 px] w-[250px] h-[300px] object-cover group-hover:scale-[1.04] duration-300"
+                      loading="lazy"
                     />
                   </div>
                   <div className="absolute bottom-0 w-full">
